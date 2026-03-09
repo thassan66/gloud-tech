@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0F172A;
+  /* Professional deep slate */
+  background-image:
+    radial-gradient(at 0% 0%, rgba(30, 41, 59, 0.5) 0, transparent 50%),
+    radial-gradient(at 50% 0%, rgba(15, 23, 42, 0.5) 0, transparent 50%);
+  color: #f8fafc;
+  /* slate-50 */
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%);
+  /* orange-500 */
+  filter: blur(80px);
+  animation: float 20s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -10%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
+  /* red-600 */
+  filter: blur(100px);
+  animation: float2 25s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(5%, 10%) scale(1.1);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(-5%, -10%) scale(1.05);
+  }
+}
+
+::selection {
+  background: rgba(249, 115, 22, 0.4);
+  color: white;
+}
+
+.container-shell {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
